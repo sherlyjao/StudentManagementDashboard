@@ -1,7 +1,12 @@
+html {
+  height: 100%;
+  color: #1D3557;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: lightblue;
-  margin: 2em 0;
+  font-family: "Outfit", sans-serif;
+  background: linear-gradient(#F1FAEE, #A8DADC); 
+  margin: 0;
 }
 .dashboard-container {
   display: flex;
@@ -34,11 +39,11 @@ input {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid #A8DADC;
   border-radius: 4px;
 }
 button {
-  background-color: #28a745;
+  background-color: #457B9D;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -46,7 +51,14 @@ button {
   cursor: pointer;
   width: 100%;
   font-weight: bold;
+  transition: all ease-in-out 0.2s;
 }
+
+button:hover {
+  background-color: #1D3557;
+  transform: scale(1.02);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -62,5 +74,21 @@ th {
 }
 
 .empty {
-    text-align: center;
+  text-align: center;
+}
+
+.title {
+  text-align: center; 
+  margin-bottom: 30px;
+  font-size: 50px;
+}
+
+h3 {
+  justify-self: center;
+  font-size: 25px;
+  margin: 0 0 1em;
+}
+
+label, th {
+  color: #457B9D;
 }
