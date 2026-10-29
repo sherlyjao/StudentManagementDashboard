@@ -1,14 +1,16 @@
-import { getStudentsAPI, addStudentsAPI } from "./api.js";
+import { getStudentsAPI } from "./api.js";
+import { renderTable } from "./app.js";
 
-//Display dummy array
-console.log(getStudentsAPI());
+let localStudents = [];
 
-//Add new student
-const newStudent = addStudentsAPI({
-  firstName: "Dowew",
-  lastName: "Amancio",
-  email: "dowew.amancio@example.com",
-});
+const initApp = () => {
+    try {
+        localStudents = getStudentsAPI();
+        renderTable(localStudents);
 
-//Display updated list
-console.log(getStudentsAPI());
+    } catch (error) {
+        alert(`${error.message}`);
+    }
+};
+
+initApp();
