@@ -1,6 +1,7 @@
 import { getStudentsAPI } from "./api.js";
 import { renderTable } from "./app.js";
 
+// Exercise 2
 let localStudents = [];
 
 const initApp = () => {

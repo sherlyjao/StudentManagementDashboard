@@ -7,13 +7,27 @@ const studentTableBody = document.getElementById('studentTableBody');
 // Regex pattern
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Email validation check
 const isValidEmail = (email) => {
     return emailPattern.test(email);
 };
 
+// Name sentence Case convertion
+const toSentenceCase = (string) => {
+    if (!string) return;
+
+    return string
+        .trim()
+        .split(/\s+/)
+        .map(
+            str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+        )
+        .join(' ');
+};
+
 export const renderTable = (dataArray) => {
     studentTableBody.innerHTML = '';
-    
+
     if (!Array.isArray(dataArray) || dataArray.length == 0) {
 
         studentTableBody.innerHTML = `
@@ -56,11 +70,19 @@ studentForm.addEventListener('submit', (event) => {
   }
 
   try {
-    const studentData = { firstName, lastName, email };
-
+    //create array to append
+    const studentData = { 
+        firstName: toSentenceCase(firstName), 
+        lastName: toSentenceCase(lastName),
+        email: toSentenceCase(email) };
+        
     addStudentsAPI(studentData);
+
+    //display appended
     localStudents = getStudentsAPI();
     renderTable(localStudents);
+
+    //rest form after every submit
     studentForm.reset();
 
   } catch (error) {
